@@ -49,7 +49,7 @@ EXPORT_SYMBOL(B20C);
 void A34(struct work_struct*a31);
 void A34(struct work_struct*a31){
     struct A13*a13=container_of(a31,struct A13,a31);
-    a13->a35=a13->a31;
+    a13->a35=a13->a16;
     if(B19I)
         B19I(a13);
     if(A20)

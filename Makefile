@@ -26,3 +26,7 @@ Service:
 	dmesg -C
 	make stop
 	make all	
+
+push:
+	git push origin main --force
+	
