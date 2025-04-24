@@ -28,5 +28,6 @@ Service:
 	make all	
 
 push:
+	git add .
+	git commit -m "WeMakeSoftware Update macros,Codes and docs"
 	git push origin main --force
-	
