@@ -1,0 +1,11 @@
+[Unit]
+Description=WeMakeSoftware.Com
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/wemakesoftware
+ExecStart=make Service
+
+[Install]
+WantedBy=multi-user.target
