@@ -43,10 +43,15 @@ static void C14(struct A13*a13){
     schedule_delayed_work(&c15->c17, msecs_to_jiffies(600000));
 }
 static void C18(void){
-
+    struct C8*c15,*c16;
+    mutex_lock(&C13);
+    list_for_each_entry_safe(c15,c16,&C12,c11){
+        cancel_delayed_work_sync(&c15->c17);
+        list_del(&c15->c11);
+        kfree(c15);
+    }
+    mutex_unlock(&C13);
 }
 C1(P_C0,{
   C18();
-},B20,C7,C14){
-  
-}
+},B20,C7,C14){}
