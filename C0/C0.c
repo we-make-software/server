@@ -34,12 +34,13 @@ static void C14(struct A13*a13){
             if(!c15)return;
             memcpy(c15->c10,a13->a35,6);
             c15->c9=a13->a15;
+            INIT_DELAYED_WORK(&c15->c17,C18);
             INIT_LIST_HEAD(&c15->c11);
             list_add(&c15->c11,&C12);
             mutex_unlock(&C13);
         }
     }
-
+    schedule_delayed_work(&c15->c17, msecs_to_jiffies(600000));
 }
 C1(P_C0,{
   
