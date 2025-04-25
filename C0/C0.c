@@ -42,8 +42,11 @@ static void C14(struct A13*a13){
     }
     schedule_delayed_work(&c15->c17, msecs_to_jiffies(600000));
 }
+static void C18(void){
+
+}
 C1(P_C0,{
-  
+  C18();
 },B20,C7,C14){
   
 }
