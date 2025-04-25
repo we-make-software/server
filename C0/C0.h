@@ -10,7 +10,7 @@
     }\
     EXPORT_SYMBOL(C2##C);\
     static void C2##M(struct A13*a13){\
-        C3 \
+        C3(a13); \
         if(C2##I)C2##I(a13);\
     }\
     static void C5(void);\
@@ -21,5 +21,35 @@
     }\
     static void C5(void)
 
+#define SetPointerIncoming(x)\
+        a13->a35+=x
+
+#define GetIncoming()\
+        a13->a35
+
+#define GetIncomingU8()\
+    (*(u8*)GetIncoming())
+
+#define GetIncomingU16()\
+    (*(u16*)GetIncoming())
+
+#define GetIncomingU32()\
+    (*(u32*)GetIncoming())
+
+#define GetIncomingU64()\
+    (*(u64*)GetIncoming())
+        
+#define GetIncomingS8()\
+    (*(s8*)GetIncoming())
+
+#define GetIncomingS16()\
+    (*(s16*)GetIncoming())
+
+#define GetIncomingS32()\
+    (*(s32*)GetIncoming())
+
+#define GetIncomingS64()\
+    (*(s64*)GetIncoming())
+        
 
 #endif
