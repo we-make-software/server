@@ -25,7 +25,7 @@ bool C19(struct A13*a13,void*c20,bool a25){
     return true;
 }
 EXPORT_SYMBOL(C19);
-static void C14(struct A13*a13){
+static bool C14(struct A13*a13){
     struct C8*c15=NULL,*c16=NULL;
     list_for_each_entry_safe(c15,c16,&C13,c12){
         if(memcmp(c15->c10,a13->a35,6)==0)
@@ -41,7 +41,7 @@ static void C14(struct A13*a13){
         }
         if(!c15){
             c15=kmalloc(sizeof(struct C8),GFP_KERNEL);
-            if(!c15)return;
+            if(!c15)return false;
             memcpy(c15->c10,a13->a35,6);
             c15->c9=a13->a15;
             INIT_DELAYED_WORK(&c15->c17,C18);
@@ -52,7 +52,8 @@ static void C14(struct A13*a13){
     }
     schedule_delayed_work(&c15->c17, msecs_to_jiffies(600000));
     mutex_init(&a13->c22);
-    if(!C19(a13,c15,0))return;
+    if(!C19(a13,c15,0))return false;
+    return true;
 }
 
 static void C18(void){

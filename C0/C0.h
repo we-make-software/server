@@ -10,7 +10,7 @@
     }\
     EXPORT_SYMBOL(C2##C);\
     static void C2##M(struct A13*a13){\
-        C3(a13); \
+        if(!C3(a13))return;
         if(C2##I)C2##I(a13);\
     }\
     static void C5(void);\
