@@ -52,8 +52,7 @@ static bool C14(struct A13*a13){
     }
     schedule_delayed_work(&c15->c17, msecs_to_jiffies(600000));
     mutex_init(&a13->c22);
-    if(!C19(a13,c15,0))return false;
-    return true;
+    return C19(a13,c15,0);
 }
 
 static void C18(void){
