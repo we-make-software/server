@@ -9,7 +9,6 @@ static LIST_HEAD(C12);
 static DEFINE_MUTEX(C13);
 static void C18(struct work_struct*a17){
     struct C8*c15=container_of(a17,struct C8,c17.work);
-    struct A13*a13=NULL;
     mutex_lock(&C13);
     list_del(&c15->c11);
     kfree(c15);
@@ -19,39 +18,11 @@ static void C18(struct work_struct*a17){
 extern struct B35*D1(struct C8*,struct A13*);
 extern struct B35*E1(struct C8*,struct A13*);
 static bool C14(struct A13*a13){
-    struct C8*c15=NULL,*c16=NULL;
-    list_for_each_entry_safe(c15,c16,&C13,c12){
-        if(memcmp(c15->c10,a13->a35,6)==0)
-        break;
-    }
-    if(!c15){
-        mutex_lock(&C13);
-        list_for_each_entry_safe(c15,c16,&C13,c12){
-            if(memcmp(c15->c10,a13->a35,6)==0){
-                mutex_unlock(&C13);
-                break;
-            }
-        }
-        if(!c15){
-            c15=kmalloc(sizeof(struct C8),GFP_KERNEL);
-            if(!c15)return false;
-            memcpy(c15->c10,a13->a35,6);
-            c15->c9=a13->a15;
-            INIT_DELAYED_WORK(&c15->c17,C18);
-            INIT_LIST_HEAD(&c15->c11);
-            list_add(&c15->c11,&C12);
-            mutex_unlock(&C13);
-        }
-    }
-    mutex_init(&a13->c22);
-    SetPointerIncoming(8);
-    struct B35*b35=IsVersion4()?E1(c15,a13):D1(c15,a13);
-    if(!b35)return false;
-    schedule_delayed_work(&c15->c17, msecs_to_jiffies(600000));
+    printk(KERN_INFO "C14\n");
     return true;
 }
 
-static void C18(void){
+static void C19(void){
     struct C8*c15,*c16;
     mutex_lock(&C13);
     list_for_each_entry_safe(c15,c16,&C12,c11){
@@ -61,7 +32,6 @@ static void C18(void){
     }
     mutex_unlock(&C13);
 }
-
 C1(P_C0,{
-  C18();
+    C19();
 },B20,C7,C14){}

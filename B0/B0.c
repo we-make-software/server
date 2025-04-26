@@ -40,18 +40,19 @@ void A33(void){
         }
 }
 EXPORT_SYMBOL(A33);
-static void(*B19I)(struct A13*)=NULL;
+static void(*B19)(struct A13*)=NULL;
 void B20C(void(*b19)(struct A13*));
 void B20C(void(*b19)(struct A13*)){
-    B19I=b19;
+    B19=b19;
 }
 EXPORT_SYMBOL(B20C);
 void A34(struct work_struct*a31);
 void A34(struct work_struct*a31){
     struct A13*a13=container_of(a31,struct A13,a31);
     a13->a35=a13->a16;
-    if(B19I)
-        B19I(a13);
+    printk(KERN_INFO "A34\n");
+    if(B19)
+        B19(a13);
     if(A20)
         A20(a13);
 }

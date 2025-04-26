@@ -2,11 +2,12 @@
 #ifndef B0
 #define B0
 struct C8;
+struct B35;
 struct B1{
     void(*b2)(void);
     struct list_head b3;
 };
-extern bool C19(struct A13*a13,void*c20,bool a25);
+extern bool B36(struct A13*a13,void*c20,bool a25);
 extern void B10(struct B1**b1,void(*b2)(void));
 extern void B11(struct B1*b1,void(*b2)(void));
 

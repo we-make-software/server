@@ -1,4 +1,4 @@
-Projects := B0 D0 E0 C0 A0
+Projects := B0 C0 A0
 
 
 .PHONY: all
