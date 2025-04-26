@@ -10,7 +10,7 @@ static void A20(struct A13*a13){
         if(!list_empty(&a22->a16)){
             list_for_each_entry_safe(a23,a24,&a22->a16,a16){
                 list_del(&a23->a16);
-                if (a23->a25 && a23->a18)
+                if (a23->a25&&a23->a18)
                     kfree(a23->a18);
                 kfree(a23);
             }

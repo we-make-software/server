@@ -21,6 +21,8 @@
     }\
     static void C5(void)
 
+extern bool C19(struct A13*a13,void*c20,bool a25);
+
 #define SetPointerIncoming(x)\
         a13->a35+=x
 
