@@ -56,4 +56,15 @@ void A34(struct work_struct*a31){
         A20(a13);
 }
 EXPORT_SYMBOL(A34);
+extern bool B36(struct A13*a13,void*c20,bool a25);
+bool B36(struct A13*a13,void*c20,bool a25){
+    struct A16*b37=kmalloc(sizeof(struct A16),GFP_KERNEL);
+    if(!b37)return false;  
+    b37->a25=a25;
+    b37->a18=c20;
+    INIT_LIST_HEAD(&b37->a16);
+    list_add_tail(&b37->a16,&a13->a16->a16);
+    return true;
+}
+EXPORT_SYMBOL(B36);
 A1(P_B0,{}){}

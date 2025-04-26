@@ -21,7 +21,9 @@
     }\
     static void C5(void)
 
-extern bool C19(struct A13*a13,void*c20,bool a25);
+
+#define IsVersion4()\
+    (((struct A22*)a13->a16->a18)->a27)
 
 #define SetPointerIncoming(x)\
         a13->a35+=x

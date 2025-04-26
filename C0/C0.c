@@ -15,16 +15,9 @@ static void C18(struct work_struct*a17){
     kfree(c15);
     mutex_unlock(&C13);
 }
-bool C19(struct A13*a13,void*c20,bool a25){
-    struct A16*c21=kmalloc(sizeof(struct A16),GFP_KERNEL);
-    if(!c21)return false;  
-    c21->a25=a25;
-    c21->a18=c20;
-    INIT_LIST_HEAD(&c21->a16);
-    list_add_tail(&c21->a16,&a13->a16->a16);
-    return true;
-}
-EXPORT_SYMBOL(C19);
+
+extern struct B35*D1(struct C8*,struct A13*);
+extern struct B35*E1(struct C8*,struct A13*);
 static bool C14(struct A13*a13){
     struct C8*c15=NULL,*c16=NULL;
     list_for_each_entry_safe(c15,c16,&C13,c12){
@@ -50,9 +43,12 @@ static bool C14(struct A13*a13){
             mutex_unlock(&C13);
         }
     }
-    schedule_delayed_work(&c15->c17, msecs_to_jiffies(600000));
     mutex_init(&a13->c22);
-    return C19(a13,c15,0);
+    SetPointerIncoming(8);
+    struct B35*b35=IsVersion4()?E1(c15,a13):D1(c15,a13);
+    if(!b35)return false;
+    schedule_delayed_work(&c15->c17, msecs_to_jiffies(600000));
+    return true;
 }
 
 static void C18(void){

@@ -33,6 +33,7 @@ struct A13{
     struct net_device*a15;
     struct A16*a16,*a35;
     u8*a14;
+    struct mutex c22;
     struct work_struct a31;
 };  
 struct A34;
