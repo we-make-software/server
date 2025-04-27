@@ -24,5 +24,11 @@ extern void B11(struct B1*b1,void(*b2)(void));
     static void B18(void)
 
 
+#define B38(b39)\
+    mutex_lock(&a13->c22);\
+    b38\
+    mutex_unlock(&a13->c22);
 
+
+    
 #endif

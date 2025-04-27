@@ -1,8 +1,8 @@
 MODULE := $(notdir $(CURDIR))
 KERNELDIR ?= /lib/modules/$(shell uname -r)/build
 PWD := $(shell pwd)
-EXTRA_CFLAGS += -I../B0 
-KBUILD_EXTRA_SYMBOLS := ../B0/Module.symvers 
+EXTRA_CFLAGS += -I../B0 -I../C0
+KBUILD_EXTRA_SYMBOLS := ../B0/Module.symvers ../C0/Module.symvers 
 obj-m := $(MODULE).o
 
 all:
